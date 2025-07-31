@@ -14,19 +14,31 @@
 
 // Start coding here
 
-const products = [
-  { name: "Chocolate Milk", quantity: 10, zone: "A1" },
-  { name: "Pepsi", quantity: 5, zone: "B2" },
-  { name: "Water Bottle", quantity: 15, zone: "E2" },
-  { name: "Headphones", quantity: 8, zone: "F3" },
-  { name: "Backpack", quantity: 12, zone: "G4" },
-];
+function findIfProductsAvailable(products, targetProduct, targetQuantity) {
+    for (let i = 0; i < products.length; i++) {
+      if (products[i].name === targetProduct) {
+        if (products[i].quantity >= targetQuantity) {
+          return `${targetQuantity} ${targetProduct}(s) are available at Zone ${products[i].zone}`;
+        } else {
+          return `Sorry, we've got only ${products[i].quantity} ${targetProduct}(s) available at Zone ${products[i].zone}`;
+        }
+      }
+    }
+    return `We don't have ${targetProduct}`;
+  }
+  
+  const products = [
+    { name: "Chocolate Milk", quantity: 10, zone: "A1" },
+    { name: "Pepsi", quantity: 5, zone: "B2" },
+    { name: "Water Bottle", quantity: 15, zone: "E2" },
+    { name: "Headphones", quantity: 8, zone: "F3" },
+    { name: "Backpack", quantity: 12, zone: "G4" },
+  ];
+  
+  console.log(findIfProductsAvailable(products, "Chocolate Milk", 3));
 
-console.log(findIfProductsAvailable(products, "Chocolate Milk", 3));
-// 3 Chocolate Milk(s) are available at Zone A1
+  
+  console.log(findIfProductsAvailable(products, "Pepsi", 10));
+ 
+  
 
-console.log(findIfProductsAvailable(products, "Pepsi", 10));
-// Sorry, we've got only 5 Pepsi(s) available at Zone B2
-
-console.log(findIfProductsAvailable(products, "Charger", 1));
-// We don't have Charger

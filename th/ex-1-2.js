@@ -11,12 +11,21 @@
 
 // Start coding here
 
-const products = [
-  { id: 2, name: "Desk Chair", price: 300, category: "Furniture", zone: "C" },
-  { id: 8, name: "Keyboard", price: 100, category: "Electronics", zone: "E" },
-  { id: 1, name: "Monitor", price: 400, category: "Electronics", zone: "E" },
-  { id: 10, name: "Running Shoes", price: 90, category: "Clothing", zone: "H" },
-];
-
-console.log(findIfProductsExist(products, "Running Shoes")); // 3
-console.log(findIfProductsExist(products, "Pepsi")); // -1
+function findIfProductsExist(products, targetProduct) {
+    for (let i = 0; i < products.length; i++) {
+      if (products[i].name === targetProduct) {
+        return i;
+      }
+    }
+    return -1;
+  }
+  
+  const products = [
+    { id: 2, name: "Desk Chair", price: 300, category: "Furniture", zone: "C" },
+    { id: 8, name: "Keyboard", price: 100, category: "Electronics", zone: "E" },
+    { id: 1, name: "Monitor", price: 400, category: "Electronics", zone: "E" },
+    { id: 10, name: "Running Shoes", price: 90, category: "Clothing", zone: "H" },
+  ];
+  
+  console.log(findIfProductsExist(products, "Running Shoes")); 
+  console.log(findIfProductsExist(products, "Pepsi")); 
